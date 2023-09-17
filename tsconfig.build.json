@@ -9,6 +9,8 @@
   "exclude": [
     "node_modules",
     // Tests
-    "**/tests/*.*"
+    "**/tests/*.*",
+    // Story
+    "**/stories/*.*"
   ]
 }
