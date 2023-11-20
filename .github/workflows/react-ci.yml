@@ -18,13 +18,13 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: "**/node_modules"
+          path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: package-install
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: yarn install
       - name: eslint-check
-        run: yarn eslint
+        run: yarn lint
       - name: prettier-check
         run: yarn fmt:check
       - name: build
