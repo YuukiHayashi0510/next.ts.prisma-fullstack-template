@@ -3,11 +3,11 @@ import {
   createPost,
   findPostAll,
   findPostById,
-  deletePost,
   updatePost,
-} from '~/app/api/post/service'
-import prisma, { cleanUpDatabase } from '~/lib/prisma'
-import { CreatePostData, UpdatePostData } from '~/types/api/post'
+  deletePost,
+} from '~/src/app/api/post/service'
+import prisma, { cleanUpDatabase } from '~/src/lib/prisma'
+import { CreatePostData, UpdatePostData } from '~/src/types/api/post'
 
 describe('Post Service Test', () => {
   let post: Post

@@ -1,5 +1,9 @@
-import prisma from '~/lib/prisma'
-import { CreatePostData, PostWithUser, UpdatePostData } from '~/types/api/post'
+import prisma from '~/src/lib/prisma'
+import {
+  CreatePostData,
+  PostWithUser,
+  UpdatePostData,
+} from '~/src/types/api/post'
 
 // Create
 export async function createPost(data: CreatePostData) {

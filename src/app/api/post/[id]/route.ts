@@ -1,6 +1,6 @@
 import { HttpStatusCode } from 'axios'
 import { NextResponse } from 'next/server'
-import { prismaErrorHandler } from '~/lib/prisma'
+import { prismaErrorHandler } from '~/src/lib/prisma'
 import { deletePost, findPostById, updatePost } from '../service'
 
 export async function GET(_: Request, context: { params: { id: string } }) {

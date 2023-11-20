@@ -1,6 +1,6 @@
 import { HttpStatusCode } from 'axios'
 import { NextRequest, NextResponse } from 'next/server'
-import prisma, { prismaErrorHandler } from '~/lib/prisma'
+import prisma, { prismaErrorHandler } from '~/src/lib/prisma'
 import { createPost } from './service'
 
 const PER_PAGE = 10
