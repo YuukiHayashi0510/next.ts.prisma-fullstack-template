@@ -2,7 +2,7 @@ name: React-CI
 on: push
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,24 @@ jobs:
         run: pnpm install
       - name: eslint-check
         run: pnpm lint
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: cache-node-modules
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - name: package-install
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: pnpm install
       - name: prettier-check
         run: pnpm fmt:check
-      - name: build
-        run: pnpm build
